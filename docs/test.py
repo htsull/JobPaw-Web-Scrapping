@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 import pandas as pd
+import time
 
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36'}
 
@@ -37,8 +38,11 @@ def getJobs(page):
 
 
 lastPage = getLastPage()
-
-for i in range(lastPage, lastPage + 1, 1):
-    getJobs(i)
-
-pd.DataFrame(allJobs).to_excel('jobpaw.xlsx', index=False)
+for i in range(0, lastPage + 1, 1):
+    if lastPage % 10 == 0:
+        time.sleep(3)
+        getJobs(i)
+    else:
+        time.sleep(1)
+        
+pd.DataFrame(allJobs).to_excel('jobPawLinks.xlsx', index=False)
