@@ -13,7 +13,7 @@ allJobs = []
 
 
 # Definition of the function that scrapes the links data for phase one
-def getJobs(page):
+def getJobs(page: int):
     url = f'https://www.jobpaw.com/pont/professionnels.php?pageNum_RS_job={page}&id=55'
     # request the page
     r = requests.get(url, headers=headers)
@@ -22,16 +22,13 @@ def getJobs(page):
     # grabbing the concerned part of the table
     jobs = soup.find_all('tr')[8:-2]
 
-    # looping through the rows of the table to finde the links to the jobs
+    # looping through the rows of the table to find the links to the jobs
     # and create the list of jobs links
     for item in jobs:
-        listOfJobs = {
-            'institution': item.find('td').text.strip(),
-            'link': 'https://www.jobpaw.com/pont/professionnels.php' + item.find('a')['href'],
-            'titre': item.find_all('td')[1].text.strip(),
-            'domaine': item.find_all('td')[2].text.strip(),
-            'dateLimite': item.find_all('td')[3].text.strip()
-        }
+        listOfJobs = dict(institution=item.find('td').text.strip(),
+                          link='https://www.jobpaw.com/pont/professionnels.php' + item.find('a')['href'],
+                          titre=item.find_all('td')[1].text.strip(), domaine=item.find_all('td')[2].text.strip(),
+                          dateLimite=item.find_all('td')[3].text.strip())
         allJobs.append(listOfJobs)
     return allJobs
 
@@ -48,11 +45,10 @@ def getLastPage():
     return numberOfPages
 
 
+lastPage = getLastPage()
 
 print(f'There are {lastPage} pages to scrape')
 print(f'Beginning...', flush=True)
-
-lastPage = getLastPage()
 
 # Defining a progress bar to make things looks nice
 # credit to https://stackoverflow.com/a/61295200/9915482
@@ -65,7 +61,6 @@ def print_progressbar(total, current, barsize=60):
 
 print_frequency = max(min(lastPage // 50, 100), 1)
 
-# print("Start Task..", flush=True)
 for i in range(0, lastPage + 1, 1):
     if i % 5 == 0:
         time.sleep(2)
