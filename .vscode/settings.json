@@ -10,5 +10,6 @@
         ".",
         "-p",
         "*test.py"
-    ]
+    ],
+    "jupyter.jupyterServerType": "local"
 }
