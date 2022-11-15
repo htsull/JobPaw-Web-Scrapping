@@ -1,5 +1,5 @@
 # JobPaw Scrapping
-JobPaw is know as the biggest job board in Haiti. This project is meant to explore the way to scrap data on this site and store them in an excel file.
+JobPaw is know as the biggest job board in Haiti. This project is meant to explore the way to scrap data on this website and store them in an excel file.
 
 This project is divided in two parts :
 
