@@ -53,7 +53,7 @@ openpyxl                        # required by pandas for Excel output
 pip install -r requirements.txt
 ```
 
-# ▶️ Usage
+## ▶️ Usage
 
 - 🔗 Run python getLinksScript.py to create jobPawLinks.xlsx containing all job links.
 
@@ -61,7 +61,7 @@ pip install -r requirements.txt
 
 💡 Both scripts display a progress bar while running and may pause periodically to avoid overwhelming the JobPaw servers.
 
-# ⚠️ Disclaimer
+## ⚠️ Disclaimer
 
 These scripts are provided for educational purposes.
 When scraping any website, ensure that you respect its terms of service and local laws. Excessive or automated access to web content may lead to your IP being blocked.
