@@ -57,7 +57,7 @@ pip install -r requirements.txt
 
 - 🔗 Run python `getLinksScript.py` to create `jobPawLinks.xlsx` containing all job links.
 
-- 📑 Run python `getJobDetailsScript.py` to fetch each job description from the previously generated links file. The results will be stored in jobDetails.xlsx.
+- 📑 Run python `getJobDetailsScript.py` to fetch each job description from the previously generated links file. The results will be stored in `jobDetails.xlsx`.
 
 💡 Both scripts display a progress bar while running and may pause periodically to avoid overwhelming the JobPaw servers.
 
