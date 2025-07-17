@@ -1,0 +1,7 @@
+requests
+bs4
+pandas
+openpyxl
+numpy
+time
+datetime
